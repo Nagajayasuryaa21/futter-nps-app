@@ -35,12 +35,7 @@ dependencies:
   persistent_bottom_nav_bar_v2: ^4.2.8
   webview_flutter: ^4.5.0
   fluttertoast: ^8.2.4
-#  nps_form_test_package:
-#    git:
-#      url: 'https://raamsedhu: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@github.com/raamsedhu/nps_form_test_package.git'
-  kapture_nps:
-    git:
-      url: 'https://KaptureFlutter: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@github.com/KaptureFlutter/KaptureNPS.git'
+
   lottie: ^3.1.0
   url_launcher: ^6.2.5
 dev_dependencies:

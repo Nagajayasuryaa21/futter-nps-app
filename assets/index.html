@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listening to iframe messages</title>
+</head>
+<body>
+
+<!-- The iframe -->
+<iframe id="myIframe" src="https://democrm.kapturecrm.com/nui_develop/survey_form/fxp1709532"></iframe>
+<button onclick="post()">CLICK</button>
+
+<!-- Your JavaScript code -->
+<script>
+function post(){
+    window.parent.postMessage({name: "karthik", message: "Success"});
+}
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("IFRAME");
+    const bc = new window.BroadcastChannel('channel_name');
+    const iframe = document.getElementById("myIframe");
+    window.addEventListener("message", function(event) {
+        if (event.source === iframe.contentWindow) {
+            const payload = event.data;
+            console.log("Received message from channel:", event.origin);
+            console.log(event);
+            console.log(event);
+            if (payload.type === "SURVEY_FORM_SUBMIT" && payload.status === true) {
+                console.log("Form generated successfully!");
+            }
+        }
+        console.log(event);
+        console.log("Received message from channel:", event.origin);
+    });
+
+    window.postMessage('Hello',"*");
+    bc.postMessage("MESSAGE");
+});
+</script>
+
+</body>
+</html>
